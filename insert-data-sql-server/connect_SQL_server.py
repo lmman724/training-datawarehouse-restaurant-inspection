@@ -147,6 +147,7 @@ if success:
              # Create a CSV reader object
             reader = csv.DictReader(csvfile)
         # Iterate over each row in the CSV file
+            logging.info("Inserting data into the table...")
             for row in reader:
                 # Extract the values from the row
                 camis = row['CAMIS'].replace("'", "''")
@@ -182,13 +183,13 @@ if success:
                 #     # Handle or log the error as needed
                 #     continue
                 # Generate the SQL INSERT statement
-                sql = f"INSERT INTO dbo.restaurant_inspection (camis, dba, boro, building, street, zipcode, phone, cuisine, inspection_date, action, violation_code, violation_desc, critical_flag, score, grade, grade_date, record_date, inspection_type, latitude, longitude, community_board, council_district, census_tract, bin_number, bbl_number, nta) VALUES ('{camis}', '{dba}', '{boro}', '{building}', '{street}', '{zipcode}', '{phone}', '{cuisine_description}', '{inspection_date}', '{action}', '{violation_code}', '{violation_desc}', '{critical_flag}', '{score}', '{grade}', '{grade_date}', '{record_date}', '{inspection_type}', '{latitude}', '{longitude}', '{community_board}', '{council_district}', '{census_tract}', '{bin_number}', '{bbl_number}', '{nta}')"
+                sql = f"INSERT INTO dbo.raw_restaurant_inspection (camis, dba, boro, building, street, zipcode, phone, cuisine, inspection_date, action, violation_code, violation_desc, critical_flag, score, grade, grade_date, record_date, inspection_type, latitude, longitude, community_board, council_district, census_tract, bin_number, bbl_number, nta) VALUES ('{camis}', '{dba}', '{boro}', '{building}', '{street}', '{zipcode}', '{phone}', '{cuisine_description}', '{inspection_date}', '{action}', '{violation_code}', '{violation_desc}', '{critical_flag}', '{score}', '{grade}', '{grade_date}', '{record_date}', '{inspection_type}', '{latitude}', '{longitude}', '{community_board}', '{council_district}', '{census_tract}', '{bin_number}', '{bbl_number}', '{nta}')"
                 # Execute the insert query
                 cursor.execute(sql)
                 # Print the status of the row insertion
-                logging.info(f"Row inserted successfully: {row}")
+                #logging.info(f"Row inserted successfully: {row}")
                 # pause execution for 10 second
-                time.sleep(0.01)
+                # time.sleep(0.01)
                 # Commit the changes to the database
                 cursor.commit()
             
@@ -202,5 +203,6 @@ if success:
         conn.close()
         # Close the file after processing
         csvfile.close()
+        logging.info(f"All data was inserted successfully")
 else:
     logging.error("Failed to connect to the SQL Server.")
