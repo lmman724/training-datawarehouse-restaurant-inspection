@@ -13,6 +13,7 @@
 ## Introduction
 Restaurant inspection involves the assessment of food establishments to ensure they comply with health and safety regulations. Inspections are conducted by regulatory bodies to evaluate various factors such as cleanliness, food handling practices, sanitation, and compliance with food safety standards. The collected inspection data provides valuable insights into the overall quality and compliance of restaurants.
 
+About data: http://www1.nyc.gov/site/doh/services/restaurant-grades.page
 Applying Restaurant Inspection in a Data Warehouse:
 
 1. Data Integration:
@@ -28,6 +29,9 @@ Applying Restaurant Inspection in a Data Warehouse:
     - Generating Reports and Dashboards: Power BI can be integrated with the data warehouse to create interactive dashboards and reports. These visualizations will enable stakeholders to monitor inspection results, identify areas of improvement, and make data-driven decisions.
 
 ## Data modelling
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/bf94ec34-a74d-4ab0-a0ee-10f9fa9c930d)
+
 In this project, we are utilizing dimensional data modeling for the batching workload. Dimensional data modeling is a technique specifically designed to create databases that enable efficient data analysis and reporting.
 
 Within dimensional data modeling, we organize the data into two primary types of tables: fact tables and dimension tables.
@@ -138,7 +142,7 @@ Regarding the streaming workload, we will ingest data into Azure EventHub from o
 Once the data is transformed, the resulting data will be stored in Azure Synapse Dedicated. Users will have the ability to connect to Synapse using Power BI, enabling them to query and analyze the data seamlessly.
 ## Dashboard
 
-##Reference
+## Reference
 http://www1.nyc.gov/site/doh/services/restaurant-grades.page
 https://azure.microsoft.com/en-au/products/synapse-analytics/
 https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/kimball-data-warehouse-bus-architecture/
