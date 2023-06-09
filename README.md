@@ -134,6 +134,7 @@ Dimension tables provide context and descriptive information about the data in t
 Each dimension table serves as a lookup table providing additional information about specific attributes related to the restaurant inspections. These tables can be joined with the fact table (fact_restaurant_inspection_violations).
 ## High-level design
 ![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/4526638a-68b2-4c5d-9890-9dc9d72f40c5)
+
 In this system, we have three data sources, including both streaming and batching methods: SQL Server, internal data streaming system, and an API. All of these sources are located within our on-premises system.
 
 For the batching workload, we will be working with two data sources: SQL Server and the API. To transform and store the data efficiently, we will leverage Azure Synapse and utilize Azure Data Lake for data storage.
@@ -142,9 +143,40 @@ Regarding the streaming workload, we will ingest data into Azure EventHub from o
 
 Once the data is transformed, the resulting data will be stored in Azure Synapse Dedicated. Users will have the ability to connect to Synapse using Power BI, enabling them to query and analyze the data seamlessly.
 ## Dashboard
-![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/756fc84c-3b67-4f31-af14-0bcb53395fa3)
 
 ![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/b7816268-1bd6-49a7-9385-6250d60534c3)
+
+The dashboard aims to provide valuable insights and analysis of restaurant inspections in New York City. It focuses on two key components:
+
+Top Restaurants:
+
+This section highlights the top-performing restaurants based on their inspection scores or grades.
+The dashboard identifies and recognizes establishments that consistently maintain high standards.
+Users can easily identify the restaurants that have excelled in maintaining cleanliness and adhering to food safety regulations.
+
+Overall Restaurant Grades:
+
+This section presents a visual representation of restaurant grades across different areas of New York City.
+Users can explore the distribution of grades through interactive charts, such as bar charts or maps.
+It offers a comprehensive overview of how restaurants are performing in various neighborhoods or boroughs.
+This information helps consumers make informed choices about dining options based on the overall hygiene and compliance standards.
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/756fc84c-3b67-4f31-af14-0bcb53395fa3)
+
+The dashboard provides comprehensive trend analysis and performance evaluation of restaurant inspections in New York City. It focuses on two key areas:
+
+Trend Analysis:
+
+This section showcases the trends in inspection scores or violation counts over time.
+Users can visualize and analyze the data to identify any improvements or patterns in compliance.
+It enables stakeholders to gain insights into the overall performance of restaurants in terms of maintaining hygiene and following food safety regulations.
+Users can track the progress of inspection scores or violation counts and identify areas that require attention or further improvement.
+Inspector Performance:
+
+This section evaluates the performance of inspectors by analyzing their inspection outcomes.
+Users can assess and compare the findings of different inspectors to identify any variations or discrepancies in their evaluations.
+It provides insights into the consistency and accuracy of inspection reports.
+This information is valuable for identifying training needs, ensuring standardization in inspection processes, and enhancing overall quality control.
 
 ## Reference
 http://www1.nyc.gov/site/doh/services/restaurant-grades.page
