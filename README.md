@@ -5,8 +5,8 @@
 ## Table of Contents
 
 - [Introduction](#Introduction)
-- [Data modelling](#Data modelling)
-- [High-level design](#High-level design)
+- [Data modelling](#Datamodelling)
+- [High-level design](#Highleveldesign)
 - [Dashboard](#Dashboard)
 - [Reference](#Reference)
 
@@ -139,3 +139,7 @@ Once the data is transformed, the resulting data will be stored in Azure Synapse
 ## Dashboard
 
 ##Reference
+http://www1.nyc.gov/site/doh/services/restaurant-grades.page
+https://azure.microsoft.com/en-au/products/synapse-analytics/
+https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/kimball-data-warehouse-bus-architecture/
+
