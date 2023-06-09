@@ -14,6 +14,7 @@
 Restaurant inspection involves the assessment of food establishments to ensure they comply with health and safety regulations. Inspections are conducted by regulatory bodies to evaluate various factors such as cleanliness, food handling practices, sanitation, and compliance with food safety standards. The collected inspection data provides valuable insights into the overall quality and compliance of restaurants.
 
 About data: http://www1.nyc.gov/site/doh/services/restaurant-grades.page
+
 Applying Restaurant Inspection in a Data Warehouse:
 
 1. Data Integration:
@@ -141,6 +142,9 @@ Regarding the streaming workload, we will ingest data into Azure EventHub from o
 
 Once the data is transformed, the resulting data will be stored in Azure Synapse Dedicated. Users will have the ability to connect to Synapse using Power BI, enabling them to query and analyze the data seamlessly.
 ## Dashboard
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/756fc84c-3b67-4f31-af14-0bcb53395fa3)
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/b7816268-1bd6-49a7-9385-6250d60534c3)
 
 ## Reference
 http://www1.nyc.gov/site/doh/services/restaurant-grades.page
