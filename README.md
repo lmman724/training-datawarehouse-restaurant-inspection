@@ -128,7 +128,7 @@ Dimension tables provide context and descriptive information about the data in t
 
 Each dimension table serves as a lookup table providing additional information about specific attributes related to the restaurant inspections. These tables can be joined with the fact table (fact_restaurant_inspection_violations).
 ## High-level design
-
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/4526638a-68b2-4c5d-9890-9dc9d72f40c5)
 In this system, we have three data sources, including both streaming and batching methods: SQL Server, internal data streaming system, and an API. All of these sources are located within our on-premises system.
 
 For the batching workload, we will be working with two data sources: SQL Server and the API. To transform and store the data efficiently, we will leverage Azure Synapse and utilize Azure Data Lake for data storage.
