@@ -59,7 +59,7 @@ class restaurant_inspection:
                 writer.writerow(dataset[0].keys())
                 writer.writerows(map(lambda x: x.values(), dataset))
             logging.info(f"Data has been saved to file: {restaurant_inspection_file_path}")
-            return restaurant_inspection_file_path
+            return os.path.abspath(restaurant_inspection_file_path)
         except Exception as e:
             logging.error(f"Error occurred while saving data to file: {e}")
             raise

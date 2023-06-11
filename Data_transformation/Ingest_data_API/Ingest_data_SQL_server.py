@@ -8,36 +8,15 @@ from Libs.utilities_pyodbc import utilities_pyodbc
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
+# Define your server, database, port, username, and password
+load_dotenv(".env")
+server = os.getenv("LOCALHOST")
+dwh_staging = os.getenv("DWH_Staging")
+port = os.getenv("PORT_SQLSERVER")
+username = os.getenv("USERNAME")
+password = os.getenv("PASSWORD")
 
-###########################
 
-#test exampple get data from API
-
-# def get_restaurant_inspection_data(url):
-#     response = requests.get(url)
-    
-#     if response.status_code == 200:
-#         data = response.text
-#         # Parse the response in csv data
-#         reader = csv.DictReader(data.splitlines())
-#         data = list(reader)
-#         return data
-#     else:
-#         logging.error(f"Error occurred while retrieving data: {response.status_code}")
-#         return None
-
-# # URL for restaurant inspection data
-# url_restaurant_inspection = 'https://data.cityofnewyork.us/api/views/43nn-pn8j/rows.csv'
-
-# # Call the function to get the restaurant inspection data
-# data_restaurant_inspection = get_restaurant_inspection_data(url_restaurant_inspection)
-
-# # Check if data was successfully retrieved
-# if data_restaurant_inspection:
-#     logging.info("Data retrieved successfully!")
-# else:
-#     logging.error("Failed to retrieve data.")
-    
 #####################
 
 # create an instance for restaurant inspection utility class
@@ -45,7 +24,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 utilities_restaurant = restaurant_inspection('https://data.cityofnewyork.us/api/views/43nn-pn8j/rows.csv', "restaurant_inspection_data")
 
 
-#####################
+
 
 # Retrieve restaurant inspection data from the specified URL.
 
@@ -58,19 +37,13 @@ if data_restaurant_inspection is not None:
     #save the retrieved data to the specified folder structure
     file_path = utilities_restaurant.save_file_as_structure(data_restaurant_inspection)
 
-# Define your server, database, port, username, and password
-load_dotenv(".env")
-server = os.getenv("LOCALHOST")
-dwh_staging = os.getenv("DWH_Staging")
-port = os.getenv("PORT_SQLSERVER")
-username = os.getenv("USERNAME")
-password = os.getenv("PASSWORD")
-
 # Create an instance for utililies pyodbc class
 utilities_sql = utilities_pyodbc(server, dwh_staging, port, username, password)
 
 # Connect to the SQL Server
 success,conn,cursor = utilities_sql.connectSqlServer()
+
+###########################
 
 
 if success:
