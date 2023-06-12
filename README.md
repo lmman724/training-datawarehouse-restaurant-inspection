@@ -7,6 +7,7 @@
 - [Introduction](#Introduction)
 - [Data modelling](#Datamodelling)
 - [High-level design](#Highleveldesign)
+- [Data transformation](#DataTransformation)
 - [Dashboard](#Dashboard)
 - [Reference](#Reference)
 
@@ -142,13 +143,44 @@ For the batching workload, we will be working with two data sources: SQL Server 
 Regarding the streaming workload, we will ingest data into Azure EventHub from our internal data streaming system. To process and analyze this streaming data, we will employ Azure Streaming Analytics and Analytic services.
 
 Once the data is transformed, the resulting data will be stored in Azure Synapse Dedicated. Users will have the ability to connect to Synapse using Power BI, enabling them to query and analyze the data seamlessly.
-## Dashboard
 
-![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/b7816268-1bd6-49a7-9385-6250d60534c3)
+## Data transformation
+
+We have full progress pipelines in Azure Synapse
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/135b9e08-c142-4d26-b30c-f11d8aec2125)
+
+Raw ---> Bronze: We use Synapse SparkPool
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/814b02f4-0047-4474-963c-20b00a1a2956)
+
+Bronze ---> Stage
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/fa38c56d-ec82-476e-a1b5-e9eb3718c1ce)
+
+Stage ---> each of dim table
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/d524f74b-50cc-4d14-8534-c989ed5f94f3)
+
+Example: DimVolation, DimAddress
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/6d8e770c-4fa1-46d3-b260-3d9b972c587d)
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/fc008a87-5ece-4de1-a2af-137abb8f3991)
+
+Fact table: FactRestaurant and FactRestaurantVolation
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/b9c900c7-2390-4f79-8909-1671dcaabef2)
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/2fe48ac3-4209-444b-ae8a-4f135639b452)
+
+## Dashboard
 
 The dashboard aims to provide valuable insights and analysis of restaurant inspections in New York City. It focuses on two key components:
 
 Top Restaurants:
+
+![image](https://github.com/lmman724/training-datawarehouse-restaurant-inspection/assets/70752409/b7816268-1bd6-49a7-9385-6250d60534c3)
 
 This section highlights the top-performing restaurants based on their inspection scores or grades.
 The dashboard identifies and recognizes establishments that consistently maintain high standards.
